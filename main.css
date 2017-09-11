@@ -1,0 +1,8 @@
+#rick{
+    height: auto;
+    width: 50px;
+    position: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
