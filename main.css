@@ -1,8 +1,22 @@
 #rick{
     height: auto;
-    width: 50px;
+    width: 100px;
+    position: flex;
+    flex-direction: row;
+    
+}
+#player{
+    height: auto;
+    width: 100px;
+    position: flex;
+    flex-direction: row;
+}
+.buttons-row{
     position: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+}
+body {
+    background-color: green;
+
 }
