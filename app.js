@@ -25,14 +25,17 @@ $("#hit").on("click", function(){
     If the card places the players total in hand value over 21 then they bust and lose. */
 });
 $("#deal").on("click", function(){
+    alert("Let's play some freaking cards");
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
  one face up and one face down. This should also activate the hit me and stand buttons.
  */
+$(".cardPlayer").css("background-color", "white");
 
 });
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");
+    $(".cardDealer").css("background-color", "white");
 /* This should end the game from the users side.  After clicking stand this should
 flip the dealer's face down card and make the dealer hit until he is at 17 or above.
 This should also trigger the win condition.
