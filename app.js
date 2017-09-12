@@ -29,19 +29,29 @@ $("#hit").on("click", function(){
     I want this card to be made into a card div and placed into
     the main2 div class. 
     If the card places the players total in hand value over 21 then they bust and lose. */
+    function addCard(){
+        playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+    }
+    addCard();
+    console.log(playerHand);
 });
 $("#deal").on("click", function(){
         alert("Let's play some freaking cards");
         $(".cardPlayer").css("background-color", "white");
-        
+    function dealStartingHand() {
+        for (var i = 0; i < 2; i++){
+    playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+    dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+    };
+};
+dealStartingHand();
+console.log(playerHand);
+console.log(dealerHand);
 
-    
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
  one face up and one face down. This should also activate the hit me and stand buttons.
  */
-
-
 });
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");
