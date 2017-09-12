@@ -32,8 +32,22 @@ $("#hit").on("click", function(){
     function addCard(){
         playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     }
+    function counterP() {
+        let totalValueP = 0;
+        totalValueP = playerHand.reduce(function(banana, apple){
+            return banana + apple.value;
+        }, 0)
+        console.log(totalValueP);
+            if(totalValueP > 21){
+                console.log("YOU BUSTED!!");
+            };
+    };
+
+
     addCard();
+    counterP();
     console.log(playerHand);
+
 });
 $("#deal").on("click", function(){
         alert("Let's play some freaking cards");
@@ -42,23 +56,23 @@ $("#deal").on("click", function(){
         for (var i = 0; i < 2; i++){
     playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+         };
     };
-};
-dealStartingHand();
-console.log(playerHand);
-console.log(dealerHand);
-let totalValueD = dealerHand[0].value + dealerHand[1].value;
-let totalValueP = playerHand[0].value + playerHand[1].value;
-function compare(){
-if (totalValueP && totalValueD === 21) {
-    console.log("Push");
-} else if (totalValueP === 21) {
-    console.log("Winner winner chicken dinner!!");
-} else if (totalValueD === 21){
-    console.log("Dealer hit blackjack. Screw him");
-};
-};
-compare();
+    dealStartingHand();
+    console.log(playerHand);
+    console.log(dealerHand);
+    let totalValueD = dealerHand[0].value + dealerHand[1].value;
+    let totalValueP = playerHand[0].value + playerHand[1].value;
+    function compare(){
+        if (totalValueP && totalValueD === 21) {
+        console.log("Push");
+        } else if (totalValueP === 21) {
+        console.log("Winner winner chicken dinner!!");
+        } else if (totalValueD === 21){
+        console.log("Dealer hit blackjack. Screw him");
+        };
+    };
+    compare();
 
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
@@ -75,6 +89,7 @@ This should also trigger the win condition.
 2. If the dealer has less than the player. The player wins
 3. If the dealer has equal to the player then it is a push.
 4. If the dealer has more than the player the dealer wins.*/
+
 
 });
 
