@@ -4,31 +4,48 @@
     position: flex;
     flex-direction: row;
     
+
+    
 }
 #player{
     height: auto;
     width: 100px;
     position: flex;
     flex-direction: row;
+    float: left;
 }
 .buttons-row{
     position: flex;
     flex-direction: row;
     justify-content: space-between;
+   width: auto;
 }
 body {
     background-color: green;
 
 }
-p {
-    position: flex;
-    flex-direction: row;
-}
-.card {
-    height: 80px;
-    width: 60px;
+
+.cardDealer {
+    height: 100px;
+    width: 80px;
     padding: 20px;
+    margin: 40px;
+    border: 50px;
     background-color: white;
     text-align: center;
     position: flex;
+    justify-content: center;
+    float:  left;
+}
+.cardPlayer {
+    height: 100px;
+    width: 80px;
+    padding: 20px;
+    margin: 40px;
+    border: 50px;
+    background-color: white;
+    text-align: center;
+    position: flex;
+    justify-content: center;
+    float:  right;
 }
