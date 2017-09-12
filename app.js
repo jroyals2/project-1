@@ -2,8 +2,23 @@ $(() => {
     /* Want to create a card array. This should have 52 items. 1 - 11 
     (with 4 10s... or jack queen king and 10)
     Aces can be either 1 or 11. */
-
-    
+    let card = {
+    suit: ["Spades", "Hearts", "Diamonds", "Clubs"],
+    denom: [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"],
+    value: function() {
+        for(var i = 0; i < denom.length; i++){
+            if(i <= 8) {
+                value = denom[i];
+            }
+            else if (i <= 11){
+            value = denom[i];
+        }
+        else if(value === 12){
+            value = denom[i];
+        }
+    }
+    return denom;
+};
 $("#hit").on("click", function(){
     alert("show me what you've got");
     /* This is the hit button. I want to program this button
