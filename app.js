@@ -5,6 +5,8 @@ $(() => {
     const playerHand = [];
     const dealerHand = [];
     const deck = [];
+    let totalValueP = 0;
+    let totalValueD =0;
     function newDeck(){
         
         const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
@@ -32,8 +34,8 @@ $("#hit").on("click", function(){
     function addCard(){
         playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     }
+
     function counterP() {
-        let totalValueP = 0;
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
@@ -41,6 +43,7 @@ $("#hit").on("click", function(){
             if(totalValueP > 21){
                 console.log("YOU BUSTED!!");
             };
+            
     };
 
 
@@ -70,7 +73,11 @@ $("#deal").on("click", function(){
         console.log("Winner winner chicken dinner!!");
         } else if (totalValueD === 21){
         console.log("Dealer hit blackjack. Screw him");
-        };
+        } else if (totalValueP > 21) {
+            console.log("You Busted");
+        } else if (totalValueD > 21){
+            console.log("Dealer Busted!!! You win!!")
+        }
     };
     compare();
 
@@ -91,6 +98,30 @@ This should also trigger the win condition.
 4. If the dealer has more than the player the dealer wins.*/
 
 
+function counterD() {
+        totalValueD = dealerHand.reduce(function(banana, apple){
+            return banana + apple.value;
+        }, 0)
+        console.log(totalValueD);
+            if(totalValueD > 21){
+                console.log("YOU BUSTED!!");
+            }; 
+        
+};
+counterD();
+function dealerHit(){
+    dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+ };
+ function addCardDealer(){
+     if (totalValueD < 17){
+         dealerHit();
+     } else if (totalValueD <= 21){
+         return totalValueD;
+     } else if (totalValueD > 21){
+         console.log("Dealer bust");
+     };
+    };
+    addCardDealer();
 });
 
 });
