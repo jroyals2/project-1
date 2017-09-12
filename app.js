@@ -47,6 +47,18 @@ $("#deal").on("click", function(){
 dealStartingHand();
 console.log(playerHand);
 console.log(dealerHand);
+let totalValueD = dealerHand[0].value + dealerHand[1].value;
+let totalValueP = playerHand[0].value + playerHand[1].value;
+function compare(){
+if (totalValueP && totalValueD === 21) {
+    console.log("Push");
+} else if (totalValueP === 21) {
+    console.log("Winner winner chicken dinner!!");
+} else if (totalValueD === 21){
+    console.log("Dealer hit blackjack. Screw him");
+};
+};
+compare();
 
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
