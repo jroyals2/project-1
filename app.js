@@ -2,19 +2,25 @@ $(() => {
     /* Want to create a card array. This should have 52 items. 1 - 11 
     (with 4 10s... or jack queen king and 10)
     Aces can be either 1 or 11. */
-    const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
-    const denoms = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
+    const playerHand = [];
+    const dealerHand = [];
     const deck = [];
     function newDeck(){
+        
+        const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
+        const denoms = [2, 3, 4, 5, 6, 7, 8, 9, 10, "10_Jack", "10_Queen", "10_King", "11_Ace"];
         for(var i = 0; i < suits.length; i++){
             for(var j = 0; j < denoms.length; j++){
-                let card = {denom: denoms[j], suit: suits[i]};
+                let card = {
+                    denom: denoms[j],
+                    suit: suits[i], 
+                    value: parseInt(denoms[j])
+                    };
                 deck.push(card);
             }
         }
         return deck;
     };
-
     console.log(newDeck())
 $("#hit").on("click", function(){
     alert("show me what you've got");
@@ -25,12 +31,16 @@ $("#hit").on("click", function(){
     If the card places the players total in hand value over 21 then they bust and lose. */
 });
 $("#deal").on("click", function(){
-    alert("Let's play some freaking cards");
+        alert("Let's play some freaking cards");
+        $(".cardPlayer").css("background-color", "white");
+        
+
+    
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
  one face up and one face down. This should also activate the hit me and stand buttons.
  */
-$(".cardPlayer").css("background-color", "white");
+
 
 });
 $("#stand").on("click", function(){
