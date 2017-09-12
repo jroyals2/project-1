@@ -25,11 +25,11 @@ $("#hit").on("click", function(){
     If the card places the players total in hand value over 21 then they bust and lose. */
 });
 $("#deal").on("click", function(){
-    alert("Let's bet the farm!!!");
  /* This should start the game. When pressed this should deal
  two random cards to the player face up, and deal two random cards to the dealer
  one face up and one face down. This should also activate the hit me and stand buttons.
  */
+
 });
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");

@@ -20,3 +20,15 @@ body {
     background-color: green;
 
 }
+p {
+    position: flex;
+    flex-direction: row;
+}
+.card {
+    height: 80px;
+    width: 60px;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    position: flex;
+}
