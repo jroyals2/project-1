@@ -29,7 +29,8 @@ $(() => {
                     denom: denoms[j],
                     suit: suits[i], 
                     value: parseInt(denoms[j]),
-                    imgsource: "PNG-cards-1.3/"+ denoms[j]+ "_of_"+suits[i]+".png"
+                    imgsource: "PNG-cards-1.3/"+ denoms[j]+ "_of_"+suits[i]+".png",
+                    //imgsource2: "PNG-cards-1.3/card_back.jpg"
                     };
                 deck.push(card);
             }
@@ -49,7 +50,7 @@ $("#hit").on("click", function(){
         $("div.left-align").append(`<img src =` +playerHand[playerHand.length - 1].imgsource+` id = "cardsP">`);
     }
 
-    /*function counterP() {
+    /* function counterP() {
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
@@ -58,7 +59,8 @@ $("#hit").on("click", function(){
                 alert("YOU BUSTED!!");
             };
             
-    };*/
+    };
+    Moved this function to another location. */
 
     
     addCard();
@@ -76,6 +78,20 @@ $("#deal").on("click", function(){
     $("div.left-align").append(`<img src =` +playerHand[i].imgsource+` id = "cardsP">`);
     $("div.right-align").append(`<img src =` +dealerHand[i].imgsource+` id = "cardsD">`);
          };
+         // trying to deal a card face down
+         // this worked but broke game
+         // so it kind of worked....
+         
+       //  for (var j = 0; j < 1; j++) {
+         //   dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+           // $("div.right-align").append(`<img src =` +dealerHand[j].imgsource+` id = "cardsD">`);
+         //  };
+         //for (var k = 0; k < 1; k++){
+         //   dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+         //   $("div.right-align").append(`<img src =` +dealerHand[k].imgsource+` id = "cardsD">`);
+         //};
+
+        
     };
     dealStartingHand();
     console.log(playerHand);
@@ -101,6 +117,7 @@ $("#deal").on("click", function(){
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");
     $("div.right-align").css("background-color", "green");
+    //$("dive.right-align").last(dealerHand).attr(`img src =`+ dealerHand[1].imgsource);
 /* This should end the game from the users side.  After clicking stand this should
 flip the dealer's face down card and make the dealer hit until he is at 17 or above.
 This should also trigger the win condition.
