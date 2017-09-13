@@ -34,6 +34,7 @@ $("#hit").on("click", function(){
     If the card places the players total in hand value over 21 then they bust and lose. */
     function addCard(){
         playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+        $("div.left-align").append(`<img src =` +playerHand[playerHand.length - 1].imgsource+` id = "cardsP">`);
     }
 
     function counterP() {
@@ -42,7 +43,7 @@ $("#hit").on("click", function(){
         }, 0)
         console.log(totalValueP);
             if(totalValueP > 21){
-                console.log("YOU BUSTED!!");
+                alert("YOU BUSTED!!");
             };
             
     };
@@ -55,13 +56,13 @@ $("#hit").on("click", function(){
 });
 $("#deal").on("click", function(){
         alert("Let's play some freaking cards");
-        $(".cardPlayer").css("background-color", "white");
+        $(".cardPlayer").css("background-color", "green");
     function dealStartingHand() {
         for (var i = 0; i < 2; i++){
     playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-    $(".cardPlayer").append(`<img src =` +playerHand[i].imgsource+` class = "cardsP">`);
-    $(".cardDealer").append(`<img src =` +dealerHand[i].imgsource+` class = "cardsP">`);
+    $("div.left-align").append(`<img src =` +playerHand[i].imgsource+` id = "cardsP">`);
+    $("div.right-align").append(`<img src =` +dealerHand[i].imgsource+` id = "cardsD">`);
          };
     };
     dealStartingHand();
@@ -87,7 +88,7 @@ $("#deal").on("click", function(){
 });
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");
-    $(".cardDealer").css("background-color", "white");
+    $("div.right-align").css("background-color", "green");
 /* This should end the game from the users side.  After clicking stand this should
 flip the dealer's face down card and make the dealer hit until he is at 17 or above.
 This should also trigger the win condition.
@@ -105,6 +106,7 @@ function counterD() {
 counterD();
 function dealerHit(){
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+    $(".right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
  };
  function addCardDealer(){
      while (totalValueD < 17){
@@ -123,15 +125,15 @@ function dealerHit(){
     
   function winning() {
       if (totalValueP > 21) {
-          Console.log("You lose");
+          alret("You lose");
       } else if (totalValueD > 21){
           alert("Dealer busted. You win");
       } else if (totalValueP > totalValueD){
-         console.log("Player Wins. I Like what you've got");
+         alert("Player Wins. I Like what you've got");
      } else if(totalValueP < totalValueD) {
-        console.log("Dealer Wins. You Lose");
+        alert("Dealer Wins. You Lose");
      } else if (totalValueD === totalValueP){
-        console.log("Push");
+        alert("Push");
      }
   };
   winning();

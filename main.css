@@ -31,7 +31,7 @@ body {
     padding: 20px;
     margin: 40px;
     border: 50px;
-    background-color: black;
+    background-color: green;
     text-align: center;
     position: flex;
     justify-content: center;
@@ -43,20 +43,29 @@ body {
     padding: 20px;
     margin: 40px;
     border: 50px;
-    background-color: black;
+    background-color:green;
     text-align: center;
     position: flex;
     justify-content: center;
     float:  right;
 }
-.cardsP {
-    height: 120px;
-    width: 80px;
+#cardsP {
+    height: 150px;
+    width: 100px;
     padding: 20px;
     margin: 40px;
     border: 50px;
-    text-align: center;
+    position: flex;
+    flex-direction: row;
+    justify-content: center;
+    float: left;
+}
+#cardsD {
+    height: 150px;
+    width: 100px;
+    padding: 20px;
+    margin: 40px;
+    border: 50px;
     position: flex;
     justify-content: center;
-    float:  right;
 }
