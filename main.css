@@ -46,7 +46,6 @@ body {
     background-color: black;
     text-align: center;
     position: flex;
-    flex-direction: row-reverse;
     justify-content: center;
     float:  right;
 }

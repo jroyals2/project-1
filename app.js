@@ -73,11 +73,7 @@ $("#deal").on("click", function(){
         console.log("Winner winner chicken dinner!!");
         } else if (totalValueD === 21){
         console.log("Dealer hit blackjack. Screw him");
-        } else if (totalValueP > 21) {
-            console.log("You Busted");
-        } else if (totalValueD > 21){
-            console.log("Dealer Busted!!! You win!!")
-        }
+        };
     };
     compare();
 
@@ -102,26 +98,40 @@ function counterD() {
         totalValueD = dealerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
-        console.log(totalValueD);
-            if(totalValueD > 21){
-                console.log("YOU BUSTED!!");
-            }; 
-        
 };
 counterD();
 function dealerHit(){
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
  };
  function addCardDealer(){
-     if (totalValueD < 17){
+     while (totalValueD < 17){
          dealerHit();
-     } else if (totalValueD <= 21){
-         return totalValueD;
-     } else if (totalValueD > 21){
-         console.log("Dealer bust");
+         counterD();
+         console.log(totalValueD);
+        }
+       if (totalValueD <= 21){
+        return totalValueD;
+       } else if (totalValueD > 21){
+        console.log("Dealer has " + totalValueD)
+        console.log("Dealer bust");
      };
-    };
+  };
     addCardDealer();
-});
+    
+  function winning() {
+      if (totalValueP > 21) {
+          Console.log("You lose");
+      } else if (totalValueD > 21){
+          console.log("Dealer busted. You win");
+      } else if (totalValueP > totalValueD){
+         console.log("Player Wins. I Like what you've got");
+     } else if(totalValueP < totalValueD) {
+        console.log("Dealer Wins. You Lose");
+     } else if (totalValueD === totalValueP){
+        console.log("Push");
+     }
+  };
+  winning();
+ });
 
 });
