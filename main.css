@@ -49,3 +49,14 @@ body {
     justify-content: center;
     float:  right;
 }
+.cardsP {
+    height: 120px;
+    width: 80px;
+    padding: 20px;
+    margin: 40px;
+    border: 50px;
+    text-align: center;
+    position: flex;
+    justify-content: center;
+    float:  right;
+}

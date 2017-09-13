@@ -47,7 +47,7 @@ $("#hit").on("click", function(){
             
     };
 
-
+    
     addCard();
     counterP();
     console.log(playerHand);
@@ -60,6 +60,8 @@ $("#deal").on("click", function(){
         for (var i = 0; i < 2; i++){
     playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+    $(".cardPlayer").append(`<img src =` +playerHand[i].imgsource+` class = "cardsP">`);
+    $(".cardDealer").append(`<img src =` +dealerHand[i].imgsource+` class = "cardsP">`);
          };
     };
     dealStartingHand();
