@@ -149,6 +149,7 @@ function dealerHit(){
      } else if (totalValueD === totalValueP){
         alert("Push");
      }
+      
      //$("#reset").on("click", reset());
   };
 
