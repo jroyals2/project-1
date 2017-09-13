@@ -7,6 +7,18 @@ $(() => {
     const deck = [];
     let totalValueP = 0;
     let totalValueD =0;
+
+    function counterP() {
+        totalValueP = playerHand.reduce(function(banana, apple){
+            return banana + apple.value;
+        }, 0)
+        console.log(totalValueP);
+            if(totalValueP > 21){
+                alert("YOU BUSTED!!");
+            };
+            
+    };
+
     function newDeck(){
         
         const suits = ["spades", "hearts", "diamonds", "clubs"];
@@ -37,7 +49,7 @@ $("#hit").on("click", function(){
         $("div.left-align").append(`<img src =` +playerHand[playerHand.length - 1].imgsource+` id = "cardsP">`);
     }
 
-    function counterP() {
+    /*function counterP() {
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
@@ -46,7 +58,7 @@ $("#hit").on("click", function(){
                 alert("YOU BUSTED!!");
             };
             
-    };
+    };*/
 
     
     addCard();
@@ -106,7 +118,7 @@ function counterD() {
 counterD();
 function dealerHit(){
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-    $(".right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
+    $("div.right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
  };
  function addCardDealer(){
      while (totalValueD < 17){
@@ -124,6 +136,8 @@ function dealerHit(){
     addCardDealer();
     
   function winning() {
+      counterD();
+      counterP();
       if (totalValueP > 21) {
           alret("You lose");
       } else if (totalValueD > 21){
@@ -135,7 +149,9 @@ function dealerHit(){
      } else if (totalValueD === totalValueP){
         alert("Push");
      }
+     //$("#reset").on("click", reset());
   };
+
   winning();
  });
 
