@@ -9,14 +9,15 @@ $(() => {
     let totalValueD =0;
     function newDeck(){
         
-        const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
-        const denoms = [2, 3, 4, 5, 6, 7, 8, 9, 10, "10_Jack", "10_Queen", "10_King", "11_Ace"];
+        const suits = ["spades", "hearts", "diamonds", "clubs"];
+        const denoms = [2, 3, 4, 5, 6, 7, 8, 9, 10, "10_jack", "10_queen", "10_king", "11_ace"];
         for(var i = 0; i < suits.length; i++){
             for(var j = 0; j < denoms.length; j++){
                 let card = {
                     denom: denoms[j],
                     suit: suits[i], 
-                    value: parseInt(denoms[j])
+                    value: parseInt(denoms[j]),
+                    imgsource: "PNG-cards-1.3/"+ denoms[j]+ "_of_"+suits[i]+".png"
                     };
                 deck.push(card);
             }
@@ -67,12 +68,12 @@ $("#deal").on("click", function(){
     let totalValueD = dealerHand[0].value + dealerHand[1].value;
     let totalValueP = playerHand[0].value + playerHand[1].value;
     function compare(){
-        if (totalValueP && totalValueD === 21) {
-        console.log("Push");
+        if (totalValueP === 21 && totalValueD === 21) {
+        alert("Push");
         } else if (totalValueP === 21) {
-        console.log("Winner winner chicken dinner!!");
+        alert("Winner winner chicken dinner!!");
         } else if (totalValueD === 21){
-        console.log("Dealer hit blackjack. Screw him");
+        alert("Dealer hit blackjack. Screw him");
         };
     };
     compare();
@@ -122,7 +123,7 @@ function dealerHit(){
       if (totalValueP > 21) {
           Console.log("You lose");
       } else if (totalValueD > 21){
-          console.log("Dealer busted. You win");
+          alert("Dealer busted. You win");
       } else if (totalValueP > totalValueD){
          console.log("Player Wins. I Like what you've got");
      } else if(totalValueP < totalValueD) {
