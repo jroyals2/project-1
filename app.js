@@ -15,17 +15,25 @@ $(() => {
         }, 0)
         console.log(totalValueP);
         if (totalValueP > 21) {
-            //for (var i = 0; i< playerHand.length; i++){
-            //    if(playerHand[i].value === 11){
-             //       playerHand[i].value = 1;
-             //   } counterP();
-            //  }
-            //  }  else if(totalValueP > 21){
+            for (var i = 0; i< playerHand.length; i++){
+                if(playerHand[i].value === 11){
+                    playerHand[i].value = 1;
+                    counterP();
+                } 
+            }
+            if (totalValueP > 21){
                 setTimeout(function(){ alert("YOU BUSTED!!"); }, 800);
-            };
+                buttonsOff();
+            }
+            
+        };
             
     };
-
+    function buttonsOff() {
+        $('#hit').attr('disabled', true);
+        $('#stand').attr('disabled', true);
+        $('#deal').attr('disabled', true);
+    };
     function newDeck(){
         
         const suits = ["spades", "hearts", "diamonds", "clubs"];
@@ -85,7 +93,7 @@ $("#hit").on("click", function(){
 
 });
 $("#deal").on("click", function(){
-        alert("Let's play some freaking cards");
+        // alert("Let's play some freaking cards");
         $('#hit').attr('disabled', false);
         $('#stand').attr('disabled', false);
         $('#reset').attr('disabled', false);
@@ -125,9 +133,11 @@ $("#deal").on("click", function(){
     function compare(){
         if (totalValueP === 21 && totalValueD === 21) {
             setTimeout(function(){ alert("Push... Lame"); }, 800);
-        } else if (totalValueP === 21) {
+        }
+         else if (totalValueP === 21) {
             setTimeout(function(){ alert("Winner Winner Chicken Dinner"); }, 800);
-        } else if (totalValueD === 21){
+        }
+         else if (totalValueD === 21){
             setTimeout(function(){ alert("Dealer hit blackjack.... Screw him"); }, 800);
         };
     };
@@ -161,6 +171,15 @@ function counterD() {
         totalValueD = dealerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
+        if (totalValueD > 21){
+            for (let i = 0; i < dealerHand.length; i++){
+                if(dealerHand[i].value === 11){
+                    dealerHand[i].value = 1;
+                    counterD();
+                }
+            }
+        }
+
 };
 counterD();
 function dealerHit(){
@@ -211,5 +230,6 @@ function dealerHit(){
     $("div.left-align #cardsP").remove();
      playerHand.length = 0;
      dealerHand.length = 0;
+     newDeck();
  });
 });
