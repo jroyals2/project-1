@@ -16,7 +16,7 @@
     position: flex;
     flex-direction: row;
     justify-content: space-between;
-   width: auto;
+    width: auto;
 }
 hr {
     height: 10px;

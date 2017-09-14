@@ -8,8 +8,6 @@ $(() => {
     const deck = [];
     let totalValueP = 0;
     let totalValueD =0;
-    //$('#hit').prop('disabled', true);
-    //$('button').prop('disabled', false)
     function counterP() {
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
@@ -130,7 +128,7 @@ $("#stand").on("click", function(){
   //  $("div.right-align:last-child").attr(dealerHand.imgsource);
    // $("div.right-align").last.show();
     //$("div.right-align").css("background-color", "green");
-    //$("dive.right-align").last(dealerHand).attr(`img src =`+ dealerHand[1].imgsource);
+    //$("div.right-align").last(dealerHand).attr(`img src =`+ dealerHand[1].imgsource);
 /* This should end the game from the users side.  After clicking stand this should
 flip the dealer's face down card and make the dealer hit until he is at 17 or above.
 This should also trigger the win condition.
