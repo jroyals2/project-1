@@ -1,5 +1,6 @@
 $(() => {
     $('#deal').attr('disabled', false);
+    
     /* Want to create a card array. This should have 52 items. 1 - 11 
     (with 4 10s... or jack queen king and 10)
     Aces can be either 1 or 11. */
