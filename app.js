@@ -14,7 +14,7 @@ $(() => {
         }, 0)
         console.log(totalValueP);
             if(totalValueP > 21){
-                alert("YOU BUSTED!!");
+                setTimeout(function(){ alert("YOU BUSTED!!"); }, 800);
             };
             
     };
@@ -105,11 +105,11 @@ $("#deal").on("click", function(){
     let totalValueP = playerHand[0].value + playerHand[1].value;
     function compare(){
         if (totalValueP === 21 && totalValueD === 21) {
-        alert("Push");
+            setTimeout(function(){ alert("Push... Lame"); }, 800);
         } else if (totalValueP === 21) {
-        alert("Winner winner chicken dinner!!");
+            setTimeout(function(){ alert("Winner Winner Chicken Dinner"); }, 800);
         } else if (totalValueD === 21){
-        alert("Dealer hit blackjack. Screw him");
+            setTimeout(function(){ alert("Dealer hit blackjack.... Screw him"); }, 800);
         };
     };
     compare();
@@ -167,15 +167,15 @@ function dealerHit(){
       counterD();
       counterP();
       if (totalValueP > 21) {
-          alret("You lose");
+        setTimeout(function(){ alert("You lose"); }, 800);
       } else if (totalValueD > 21){
-          alert("Dealer busted. You win");
+        setTimeout(function(){ alert("Dealer busted. you win!"); }, 800);
       } else if (totalValueP > totalValueD){
-         alert("Player Wins. I Like what you've got");
+        setTimeout(function(){ alert("You win. I like what you've got"); }, 800);
      } else if(totalValueP < totalValueD) {
-        alert("Dealer Wins. You Lose");
+        setTimeout(function(){ alert("Dealer won... suckkssssss"); }, 800);
      } else if (totalValueD === totalValueP){
-        alert("Push");
+        setTimeout(function(){ alert("Push"); }, 800);
      }
       
      
