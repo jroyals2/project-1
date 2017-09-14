@@ -1,4 +1,5 @@
 $(() => {
+    $('#deal').attr('disabled', false);
     /* Want to create a card array. This should have 52 items. 1 - 11 
     (with 4 10s... or jack queen king and 10)
     Aces can be either 1 or 11. */
@@ -7,7 +8,8 @@ $(() => {
     const deck = [];
     let totalValueP = 0;
     let totalValueD =0;
-
+    //$('#hit').prop('disabled', true);
+    //$('button').prop('disabled', false)
     function counterP() {
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
@@ -70,7 +72,11 @@ $("#hit").on("click", function(){
 });
 $("#deal").on("click", function(){
         alert("Let's play some freaking cards");
-        $(".cardPlayer").css("background-color", "green");
+        $('#hit').attr('disabled', false);
+        $('#stand').attr('disabled', false);
+        $('#reset').attr('disabled', false);
+        //$('#deal').attr('enabled', false);
+       // $(".cardPlayer").css("background-color", "green");
     function dealStartingHand() {
         for (var i = 0; i < 2; i++){
     playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
@@ -82,15 +88,16 @@ $("#deal").on("click", function(){
          // this worked but broke game
          // so it kind of worked....
          
-       //  for (var j = 0; j < 1; j++) {
-         //   dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-           // $("div.right-align").append(`<img src =` +dealerHand[j].imgsource+` id = "cardsD">`);
-         //  };
-         //for (var k = 0; k < 1; k++){
-         //   dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-         //   $("div.right-align").append(`<img src =` +dealerHand[k].imgsource+` id = "cardsD">`);
-         //};
-
+     //  for (var j = 0; j < 1; j++) {
+     //     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+     //     $("div.right-align").append(`<img src =` +dealerHand[j].imgsource+` id = "cardsD">`);
+     //    };
+     //   for (var k = 0; k < 1; k++){
+     //     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+     //     $("div.right-align").append(`<img src =` +dealerHand[k].imgsource+ ` id = "facedown" id = "cardsD">`);
+     //    };
+         
+     $('#deal').attr('disabled', true);
         
     };
     dealStartingHand();
@@ -116,7 +123,13 @@ $("#deal").on("click", function(){
 });
 $("#stand").on("click", function(){
     alert("Mama didn't raise a fool!!!");
-    $("div.right-align").css("background-color", "green");
+    $('#reset').attr('disabled', false);
+    $('#hit').attr('disabled', true);
+    $('#stand').attr('disabled', true);
+    $('#deal').attr('disabled', true);
+  //  $("div.right-align:last-child").attr(dealerHand.imgsource);
+   // $("div.right-align").last.show();
+    //$("div.right-align").css("background-color", "green");
     //$("dive.right-align").last(dealerHand).attr(`img src =`+ dealerHand[1].imgsource);
 /* This should end the game from the users side.  After clicking stand this should
 flip the dealer's face down card and make the dealer hit until he is at 17 or above.
@@ -167,10 +180,14 @@ function dealerHit(){
         alert("Push");
      }
       
-     //$("#reset").on("click", reset());
+     
   };
 
   winning();
  });
-
+ $("#reset").on("click",function(){
+    $('#deal').attr('disabled', false);
+   // playerHand.length = 0;
+   // dealerHand.length = 0;
+ });
 });

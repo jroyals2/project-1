@@ -3,10 +3,8 @@
     width: 100px;
     position: flex;
     flex-direction: row;
-    
-
-    
 }
+
 #player{
     height: auto;
     width: 100px;
@@ -20,6 +18,11 @@
     justify-content: space-between;
    width: auto;
 }
+hr {
+    height: 10px;
+    background-color: black;
+    
+}
 body {
     
     background-image: url("https://cms-assets.tutsplus.com/legacy-premium-tutorials/posts/13756/images/13756_27f44a5f5f1554ad4b102344c9011489.jpg");
@@ -31,7 +34,6 @@ body {
     padding: 20px;
     margin: 40px;
     border: 50px;
-    background-color: green;
     text-align: center;
     position: flex;
     justify-content: center;
@@ -43,7 +45,6 @@ body {
     padding: 20px;
     margin: 40px;
     border: 50px;
-    background-color:green;
     text-align: center;
     position: flex;
     justify-content: center;
