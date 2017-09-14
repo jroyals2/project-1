@@ -14,7 +14,13 @@ $(() => {
             return banana + apple.value;
         }, 0)
         console.log(totalValueP);
-            if(totalValueP > 21){
+        if (totalValueP > 21) {
+            //for (var i = 0; i< playerHand.length; i++){
+            //    if(playerHand[i].value === 11){
+             //       playerHand[i].value = 1;
+             //   } counterP();
+            //  }
+            //  }  else if(totalValueP > 21){
                 setTimeout(function(){ alert("YOU BUSTED!!"); }, 800);
             };
             
@@ -31,7 +37,7 @@ $(() => {
                     suit: suits[i], 
                     value: parseInt(denoms[j]),
                     imgsource: "PNG-cards-1.3/"+ denoms[j]+ "_of_"+suits[i]+".png",
-                    //imgsource2: "PNG-cards-1.3/card_back.jpg"
+                    imgsource2: "PNG-cards-1.3/card_back.jpg"
                     };
                 deck.push(card);
             }
@@ -66,6 +72,15 @@ $("#hit").on("click", function(){
     
     addCard();
     counterP();
+    // if (totalValueP > 21) {
+    //    for (var i = 0; i< playerHand.length; i++){
+    //        if(playerHand[i].value === 11){
+    //            playerHand[i].value = 1;
+    //        }
+    //    }
+    //    return totalValueP;
+    //}
+    
     console.log(playerHand);
 
 });
@@ -82,20 +97,23 @@ $("#deal").on("click", function(){
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     $("div.left-align").append(`<img src =` +playerHand[i].imgsource+` id = "cardsP">`);
     $("div.right-align").append(`<img src =` +dealerHand[i].imgsource+` id = "cardsD">`);
+    //$("div.right-align #cardsD").last.remove(dealerHand.imgsource);
          };
+        // $("div.right-align #cardsD").remove(dealerHand.imgsource);
+        // $("div.right-align #cardsD").remove(dealerHand.imgsource).add(dealerHand.imgsource2);
          // trying to deal a card face down
          // this worked but broke game
          // so it kind of worked....
          
-     //  for (var j = 0; j < 1; j++) {
+     // for (var j = 0; j < 1; j++) {
      //     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
      //     $("div.right-align").append(`<img src =` +dealerHand[j].imgsource+` id = "cardsD">`);
      //    };
      //   for (var k = 0; k < 1; k++){
      //     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-     //     $("div.right-align").append(`<img src =` +dealerHand[k].imgsource+ ` id = "facedown" id = "cardsD">`);
+     //     $("div.right-align").append(`<img src =` +dealerHand[k].imgsource2+` id = "cardsD"`);
      //    };
-         
+      //   $("div.right-align:last").attr(dealerHand[1].imgsource, "PNG-cards-1.3/back_of_card.jpg>");
      $('#deal').attr('disabled', true);
         
     };
