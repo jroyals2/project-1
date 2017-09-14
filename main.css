@@ -18,6 +18,9 @@
     justify-content: space-between;
     width: auto;
 }
+h1 {
+    color: rgba(0, 0, 0, 0.6)
+}
 hr {
     height: 10px;
     background-color: black;

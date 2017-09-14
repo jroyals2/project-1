@@ -186,7 +186,12 @@ function dealerHit(){
  });
  $("#reset").on("click",function(){
     $('#deal').attr('disabled', false);
-   // playerHand.length = 0;
-   // dealerHand.length = 0;
+    $('#hit').attr('disabled', true);
+    $('#stand').attr('disabled', true);
+    $('#reset').attr('disabled', true);
+    $("div.right-align #cardsD").remove();
+    $("div.left-align #cardsP").remove();
+     playerHand.length = 0;
+     dealerHand.length = 0;
  });
 });
