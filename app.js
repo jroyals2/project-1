@@ -93,7 +93,7 @@ $("#hit").on("click", function(){
 
 });
 $("#deal").on("click", function(){
-        // alert("Let's play some freaking cards");
+        alert("Let's play some freaking cards");
         $('#hit').attr('disabled', false);
         $('#stand').attr('disabled', false);
         $('#reset').attr('disabled', false);
@@ -133,12 +133,15 @@ $("#deal").on("click", function(){
     function compare(){
         if (totalValueP === 21 && totalValueD === 21) {
             setTimeout(function(){ alert("Push... Lame"); }, 800);
+            buttonsOff();
         }
          else if (totalValueP === 21) {
             setTimeout(function(){ alert("Winner Winner Chicken Dinner"); }, 800);
+            buttonsOff();
         }
          else if (totalValueD === 21){
             setTimeout(function(){ alert("Dealer hit blackjack.... Screw him"); }, 800);
+            buttonsOff();
         };
     };
     compare();
