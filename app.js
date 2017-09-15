@@ -247,5 +247,6 @@ function dealerHit(){
      dealerHand.length = 0;
      newDeck();
  });
+ // wanting to add a bet counter function
  
 });
