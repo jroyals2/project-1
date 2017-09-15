@@ -247,4 +247,5 @@ function dealerHit(){
      dealerHand.length = 0;
      newDeck();
  });
+ 
 });
