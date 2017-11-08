@@ -9,24 +9,37 @@ $(() => {
     const deck = [];
     let totalValueP = 0;
     let totalValueD =0;
+
+    function aceChecker(array) {
+        const index = array.findIndex(i => i.denom === "11_ace" && i.value === 11)
+        if (index !== -1) {
+            array[index].value = 1
+        }
+    }
+
     function counterP() {
         totalValueP = playerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
         console.log(totalValueP);
-        if (totalValueP > 21) {
-            for (var i = 0; i< playerHand.length; i++){
-                if(playerHand[i].value === 11){
-                    playerHand[i].value = 1;
-                    counterP();
-                } 
-            }
-            if (totalValueP > 21){
-                setTimeout(function(){ alert("YOU BUSTED!!"); }, 800);
-                buttonsOff();
-            }
-            
-        };
+        let i = 1
+        while (totalValueP > 21 && i < playerHand.length ) {
+            aceChecker(playerHand)
+            i++
+            totalValueP = playerHand.reduce(function(banana, apple){
+                return banana + apple.value;
+            }, 0)
+            // for (var i = 0; i< playerHand.length; i++){
+            //         if(playerHand[i].value === 11){
+            //             playerHand[i].value = 1;
+            //             counterP();
+            //         }
+            // }
+        }
+        if (totalValueP > 21){
+            setTimeout(function(){ alert("YOU BUSTED!!"); }, 800);
+            buttonsOff();
+        }
             
     };
     function buttonsOff() {
@@ -101,15 +114,16 @@ $("#deal").on("click", function(){
        // $(".cardPlayer").css("background-color", "green");
     function dealStartingHand() {
         for (var i = 0; i < 2; i++){
-    playerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+            // playerHand.push({...deck[12]})
+    playerHand.push({...deck[Math.floor(Math.random() * deck.length)]});
     //dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
     $("div.left-align").append(`<img src =` +playerHand[i].imgsource+` id = "cardsP">`);
     //$("div.right-align").append(`<img src =` +dealerHand[i].imgsource+` id = "cardsD">`);
          };
 
-         dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+         dealerHand.push({...deck[Math.floor(Math.random() * deck.length)]});
          $("div.right-align").prepend(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
-         dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
+         dealerHand.push({...deck[Math.floor(Math.random() * deck.length)]});
          $("div.right-align").prepend(`<img src =` +dealerHand[dealerHand.length - 1].imgsource2+` id = "cardsD">`);
         // $("div.right-align #cardsD").remove(dealerHand.imgsource);
         // $("div.right-align #cardsD").remove(dealerHand.imgsource).add(dealerHand.imgsource2);
@@ -175,7 +189,7 @@ This should also trigger the win condition.
 3. If the dealer has equal to the player then it is a push.
 4. If the dealer has more than the player the dealer wins.*/
 $("div.right-align #cardsD:first").remove(dealerHand.imgsource2);
-$("div.right-align").prepend(`<img src =` +dealerHand[0].imgsource+` id = "cardsD">`);
+$("div.right-align").prepend(`<img src =` +dealerHand[1].imgsource+` id = "cardsD">`);
 
 //$("div.right-align #cardsD:last").add(dealerHand.imgsource);
 //$("div.right-align #cardsD:last").append(dealerHand[1].imgsource2, function(){
@@ -186,13 +200,19 @@ function counterD() {
         totalValueD = dealerHand.reduce(function(banana, apple){
             return banana + apple.value;
         }, 0)
-        if (totalValueD > 21){
-            for (let i = 0; i < dealerHand.length; i++){
-                if(dealerHand[i].value === 11){
-                    dealerHand[i].value = 1;
-                    counterD();
-                }
-            }
+        let i = 1
+        while (totalValueD > 21 && i < dealerHand.length){
+            aceChecker(dealerHand)
+            i++
+            totalValueD = dealerHand.reduce(function(banana, apple){
+                return banana + apple.value;
+            }, 0)
+            // for (let i = 0; i < dealerHand.length; i++){
+            //     if(dealerHand[i].value === 11){
+            //         dealerHand[i].value = 1;
+            //         counterD();
+            //     }
+            // }
         }
 
 };
