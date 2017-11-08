@@ -108,9 +108,9 @@ $("#deal").on("click", function(){
          };
 
          dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-         $("div.right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
+         $("div.right-align").prepend(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
          dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-         $("div.right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource2+` id = "cardsD">`);
+         $("div.right-align").prepend(`<img src =` +dealerHand[dealerHand.length - 1].imgsource2+` id = "cardsD">`);
         // $("div.right-align #cardsD").remove(dealerHand.imgsource);
         // $("div.right-align #cardsD").remove(dealerHand.imgsource).add(dealerHand.imgsource2);
          // trying to deal a card face down
@@ -147,7 +147,7 @@ $("#deal").on("click", function(){
             setTimeout(function(){ alert("Dealer hit blackjack.... Screw him"); }, 800);
             buttonsOff();
             $("div.right-align #cardsD:last").remove(dealerHand.imgsource2);
-            $("div.right-align").append(`<img src =` +dealerHand[1].imgsource+` id = "cardsD">`);
+            $("div.right-align").prepend(`<img src =` +dealerHand[1].imgsource+` id = "cardsD">`);
         };
     };
     compare();
@@ -174,8 +174,8 @@ This should also trigger the win condition.
 2. If the dealer has less than the player. The player wins
 3. If the dealer has equal to the player then it is a push.
 4. If the dealer has more than the player the dealer wins.*/
-$("div.right-align #cardsD:last").remove(dealerHand.imgsource2);
-$("div.right-align").append(`<img src =` +dealerHand[1].imgsource+` id = "cardsD">`);
+$("div.right-align #cardsD:first").remove(dealerHand.imgsource2);
+$("div.right-align").prepend(`<img src =` +dealerHand[0].imgsource+` id = "cardsD">`);
 
 //$("div.right-align #cardsD:last").add(dealerHand.imgsource);
 //$("div.right-align #cardsD:last").append(dealerHand[1].imgsource2, function(){
@@ -199,7 +199,7 @@ function counterD() {
 counterD();
 function dealerHit(){
     dealerHand.push(deck[Math.floor(Math.random() * deck.length)]);
-    $("div.right-align").append(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
+    $("div.right-align").prepend(`<img src =` +dealerHand[dealerHand.length - 1].imgsource+` id = "cardsD">`);
  };
  function addCardDealer(){
      while (totalValueD < 17){
